@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script>
+    const path = window.location.pathname;
+    const search = window.location.search;
+    const hash = window.location.hash;
+    const repo = location.hostname.endsWith("github.io")
+      ? location.pathname.split("/").filter(Boolean)[0]
+      : "";
+    const base = repo ? "/" + repo : "";
+    const route = path.startsWith(base) ? path.slice(base.length) : path;
+    sessionStorage.redirect = route + search + hash;
+    window.location.replace(base + "/");
+  </script>
+</head>
+<body></body>
+</html>
